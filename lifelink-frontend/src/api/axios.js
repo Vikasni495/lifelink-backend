@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_API_URL;
+// Use the hosted backend URL for deployed testing
+const API_BASE_URL = "https://lifelink-backend-1.onrender.com";
 
 const api = axios.create({
-  baseURL,
+  baseURL: API_BASE_URL,
 });
 
 // Attach token from localStorage on each request

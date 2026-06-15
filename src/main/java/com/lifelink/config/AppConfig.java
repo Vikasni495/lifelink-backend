@@ -21,10 +21,11 @@ public class AppConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // Allow frontend origins. In production consider restricting this to your deployed frontend URL(s).
                 registry.addMapping("/**")
-                        // allow patterns to support different hosts (local dev, Vite, deployed frontend)
-                        .allowedOriginPatterns("*")
+                        .allowedOrigins(
+                            "http://localhost:5173",
+                            "https://lifelinkai.netlify.app"
+                        )
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .allowCredentials(true);
